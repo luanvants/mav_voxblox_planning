@@ -4,7 +4,17 @@ project(voxblox_rrt_planner)
 find_package(catkin_simple REQUIRED)
 catkin_simple(ALL_DEPS_REQUIRED)
 
-add_definitions(-std=c++11)
+add_definitions(-std=c++14)
+# Set OMPL include and library directories
+set(OMPL_INCLUDE_DIR "/usr/local/include/ompl-1.6")
+set(OMPL_LIBRARY_DIR "/usr/local/lib")
+set(OMPL_LIBRARIES "ompl")
+
+# Add include directories
+include_directories(${OMPL_INCLUDE_DIR})
+
+# Add library directories
+link_directories(${OMPL_LIBRARY_DIR})
 
 #############
 # LIBRARIES #
